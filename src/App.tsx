@@ -1,23 +1,17 @@
-import { usePostsState, useUsersState } from './lib/context';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Header } from './components/Header';
-import { CreatePostTwo } from './components/CreatePostTwo';
-import { PostList } from './components/PostList';
-import { Signup } from './components/SignUp';
+import { SignUp } from './views/SignUp';
+import { Home } from './views/Home';
 
 function App() {
-    const { posts } = usePostsState();
-    const { user } = useUsersState();
-
     return (
         <div className="App">
-            <Header user={user} />
-
-            <div className="w-screen flex justify-center items-center flex-col">
-                <Signup />
-                <CreatePostTwo />
-                {posts && <PostList posts={posts} />}
-            </div>
+            <Router>
+                <Switch>
+                    <Route path="/signup" component={SignUp} />
+                    <Route path="/" component={Home} exact />
+                </Switch>
+            </Router>
         </div>
     );
 }

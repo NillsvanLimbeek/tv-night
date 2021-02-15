@@ -1,12 +1,25 @@
 import { useForm } from 'react-hook-form';
+import { auth, firestore } from '../lib/firebase';
 
 import { CreatePost as CreatePostType } from '../lib/types';
 
 export const CreatePostTwo = () => {
     const { register, handleSubmit, errors } = useForm<CreatePostType>({ mode: 'onChange' });
 
-    const onSubmit = (data: CreatePostType) => {
-        console.log(data);
+    const onSubmit = ({ title, description }: CreatePostType) => {
+        if (auth.currentUser) {
+            const post: CreatePostType = {
+                title,
+                description,
+                stars: 0,
+                createdAt: new Date(),
+                userId: auth.currentUser?.uid,
+            };
+
+            firestore.collection('posts').add(post);
+        } else {
+            console.error('not authticated...');
+        }
     };
 
     return (
