@@ -5,7 +5,7 @@ import { Home } from './views/Home';
 
 function App() {
     return (
-        <div className="App">
+        <div className="App h-screen w-screen">
             <Router>
                 <Switch>
                     <Route path="/signup" component={SignUp} />
