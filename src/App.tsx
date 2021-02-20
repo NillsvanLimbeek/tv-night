@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { SignUp } from './views/SignUp';
 import { SignIn } from './views/SignIn';
 import { Home } from './views/Home';
+import { PrivateRoute } from './components/PrivateRoute';
 
 function App() {
     return (
@@ -11,7 +12,7 @@ function App() {
                 <Switch>
                     <Route path="/signup" component={SignUp} />
                     <Route path="/signin" component={SignIn} />
-                    <Route path="/" component={Home} exact />
+                    <PrivateRoute path="/" component={Home} exact />
                 </Switch>
             </Router>
         </div>

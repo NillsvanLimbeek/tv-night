@@ -23,7 +23,7 @@ export const SignIn = () => {
         if (user) {
             history.push('/');
         }
-    }, [user, history]);
+    }, [history, user]);
 
     const onSubmit = async ({ email, password }: InputFields) => {
         try {

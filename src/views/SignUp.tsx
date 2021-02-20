@@ -25,7 +25,7 @@ export const SignUp = () => {
         if (user) {
             history.push('/');
         }
-    }, [user, history]);
+    }, [history, user]);
 
     const onSubmit = async ({ email, password, username }: InputFields) => {
         try {
