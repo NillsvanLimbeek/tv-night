@@ -1,23 +1,22 @@
-import { usePostsState, useUsersState } from '../lib/context';
+import { useUsersState } from '../lib/context';
+import { fetchData } from '../lib/utils/fetchData';
+import { MovieResponse } from '../lib/types';
 
 import { Header } from '../components/Header';
-import { CreatePostTwo } from '../components/CreatePostTwo';
-import { PostList } from '../components/PostList';
-import { Signup } from '../components/SignUp';
 
 export const Home = () => {
-    const { posts } = usePostsState();
     const { user } = useUsersState();
+
+    const getData = async () => {
+        const data = await fetchData<MovieResponse>('tv/4607');
+        console.log(data);
+    };
 
     return (
         <div className="App">
             <Header user={user} />
 
-            <div className="w-screen flex justify-center items-center flex-col">
-                <Signup />
-                <CreatePostTwo />
-                {posts && <PostList posts={posts} />}
-            </div>
+            <button onClick={getData}>Click</button>
         </div>
     );
 };
