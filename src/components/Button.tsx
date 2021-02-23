@@ -10,8 +10,8 @@ export const Button = (props: Props) => {
             {...props}
             className={
                 !props.disabled
-                    ? `bg-cyan-500 px-5 py-2 rounded-sm text-white shadow font-light hover:bg-cyan-600 transition-colors duration-200`
-                    : `bg-gray-300 px-5 py-2 rounded-sm text-white shadow font-light cursor-not-allowed`
+                    ? `bg-cyan-500 px-5 py-2 rounded-sm text-white shadow font-light hover:bg-cyan-600 transition-colors duration-200 ${props.className}`
+                    : `bg-gray-300 px-5 py-2 rounded-sm text-white shadow font-light cursor-not-allowed ${props.className}`
             }
         >
             {props.children}

@@ -12,3 +12,5 @@ export * from './DocumentReferenceType';
 export * from './MovieResponse';
 export * from './TvResponse';
 export * from './CommonResponse';
+
+export * from './Filter';
